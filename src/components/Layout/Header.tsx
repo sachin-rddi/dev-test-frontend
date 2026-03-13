@@ -8,7 +8,7 @@ export default function Header() {
         src={edfMainLogo}
         className={`${styles.logo} ${styles.edfText}`}
         alt="EDF Logo"
-      />{" "}
+      />
       <h1 className={styles.headerText}> Defect Detection Tool</h1>
     </header>
   );
