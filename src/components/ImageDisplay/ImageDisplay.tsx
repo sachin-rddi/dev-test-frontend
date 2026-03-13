@@ -1,18 +1,18 @@
 import styles from "./ImageDisplay.module.scss";
 
 const ImageDisplay = ({
-  filePreview,
-  fileName,
+  image,
+  filename,
 }: {
-  filePreview: string | null;
-  fileName: string;
+  image: string | null;
+  filename: string;
 }) => {
   return (
     <div className={styles.previewContainer}>
-      {filePreview && (
+      {image && (
         <>
-          <p className={styles.previewTitle}>Selected Image: {fileName}</p>
-          <img src={filePreview} alt="Preview" className={styles.previewImage} />
+          <p className={styles.previewTitle}>Selected Image: {filename}</p>
+          <img src={image} alt="Preview" className={styles.previewImage} />
         </>
       )}
     </div>
