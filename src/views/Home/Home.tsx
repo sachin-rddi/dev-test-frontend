@@ -1,5 +1,5 @@
-import ImageUploader from "../../components/ImageUploader/ImageUploader";
-import Header from "../../components/Layout/Header";
+import ImageUploader from "@components/ImageUploader/ImageUploader";
+import Header from "@components/Layout/Header";
 import styles from "./Home.module.scss";
 
 const Home = () => {

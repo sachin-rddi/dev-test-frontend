@@ -7,6 +7,22 @@
     "module": "ESNext",
     "types": ["vite/client", "node"],
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["src/*"],
+      "@store/*": ["src/store/*"],
+      "@components/*": ["src/components/*"],
+      "@features/*": ["src/views/*"],
+      "@config/*": ["src/config/*"],
+      "@views/*": ["src/views/*"],
+      "@lib": ["src/lib/*"],
+      "@enums/*": ["src/enums/*"],
+      "@context": ["src/context/*"],
+      "@assets/*": ["src/assets/*"],
+      "@constants/*": ["src/constants/*"],
+      "@data/*": ["src/data/*"],
+      "@errors/*": ["src/errors/*"]
+    },
 
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

@@ -1,11 +1,11 @@
 import { useState, type ChangeEvent } from "react";
-import UploadButton from "../Buttons/UploadButton";
-import ImageDisplay from "../ImageDisplay/ImageDisplay";
-import ResultsButton from "../Buttons/ResultsButton";
+import UploadButton from "@components/Buttons/UploadButton";
+import ImageDisplay from "@components/ImageDisplay/ImageDisplay";
+import ResultsButton from "@components/Buttons/ResultsButton";
 import FormatDefectResults, {
   type Defect,
-} from "../DefectResults/FormatDefectResults";
-import { randomDefects } from "../../constants/ApiResponse";
+} from "@components/DefectResults/FormatDefectResults";
+import { randomDefects } from "@constants/ApiResponse";
 
 const ImageUploader = () => {
   const [filename, setFilename] = useState("");

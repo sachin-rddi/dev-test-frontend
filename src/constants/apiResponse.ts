@@ -1,5 +1,5 @@
-import type { Defect } from "../components/DefectResults/FormatDefectResults";
-import { DefectType } from "../enums";
+import type { Defect } from "@components/DefectResults/FormatDefectResults";
+import { DefectType } from "@enums";
 
 const randomInteger = () => Math.floor(Math.random() * 500);
 

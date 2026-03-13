@@ -1,4 +1,4 @@
-import type { DefectType } from "../../enums";
+import type { DefectType } from "@enums";
 import styles from "./FormatDefectResults.module.scss";
 
 export interface Defect {
