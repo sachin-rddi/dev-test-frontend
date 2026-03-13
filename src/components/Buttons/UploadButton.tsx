@@ -5,9 +5,11 @@ import styles from "./UploadButton.module.scss";
 const UploadButton = ({
   setFileName,
   setFilePreview,
+  setSeeDefectResults,
 }: {
   setFileName: (name: string) => void;
   setFilePreview: (preview: string | null) => void;
+  setSeeDefectResults: (results: boolean) => void;
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -16,6 +18,7 @@ const UploadButton = ({
     if (selectedFile) {
       setFileName(selectedFile.name);
       setFilePreview(URL.createObjectURL(selectedFile));
+      setSeeDefectResults(false);
     }
   };
 

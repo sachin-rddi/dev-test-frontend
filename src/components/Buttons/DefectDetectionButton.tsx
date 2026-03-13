@@ -4,11 +4,18 @@ import FormatDefectResults from "../DefectResults/FormatDefectResults";
 import type { Defect } from "../DefectResults/FormatDefectResults";
 import { randomDefects } from "../../constants/apiResponse";
 
-const DefectDetectionButton = () => {
+const DefectDetectionButton = ({
+  setSeeDefectResults,
+  seeDefectResults,
+}: {
+  setSeeDefectResults: (results: boolean) => void;
+  seeDefectResults: boolean;
+}) => {
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
 
   function handleClick() {
     setDefectResults(randomDefects());
+    setSeeDefectResults(true);
   }
 
   return (
@@ -19,7 +26,7 @@ const DefectDetectionButton = () => {
       >
         Run Defect Detection
       </button>
-      <FormatDefectResults results={defectResults} />
+      {seeDefectResults && <FormatDefectResults results={defectResults} />}
     </div>
   );
 };
