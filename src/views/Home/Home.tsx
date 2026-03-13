@@ -6,9 +6,8 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className={styles["home-page"]}>
-        <div className={styles.title}>
-        </div>
+      <div className={styles.homePage}>
+        <div className={styles.title}></div>
         <div className={styles.subtitle}>
           <h3>Upload an image to detect defects.</h3>
         </div>

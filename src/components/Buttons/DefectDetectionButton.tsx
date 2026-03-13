@@ -1,15 +1,14 @@
 import { useState } from "react";
-import styles from "./RunDefectDetectionButton.module.scss";
-import { API_RESPONSE } from "../../constants/apiResponse";
-import FormatDefectResults from "../FormatDefectResults";
-import type { Defect } from "../FormatDefectResults"
+import styles from "./DefectDetectionButton.module.scss";
+import FormatDefectResults from "../DefectResults/FormatDefectResults";
+import type { Defect } from "../DefectResults/FormatDefectResults";
+import { randomDefects } from "../../constants/apiResponse";
 
-const RunDefectDetectionButton = () => {
+const DefectDetectionButton = () => {
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
 
   function handleClick() {
-    const results = API_RESPONSE as Defect[];
-    setDefectResults(results);
+    setDefectResults(randomDefects());
   }
 
   return (
@@ -25,4 +24,4 @@ const RunDefectDetectionButton = () => {
   );
 };
 
-export default RunDefectDetectionButton;
+export default DefectDetectionButton;

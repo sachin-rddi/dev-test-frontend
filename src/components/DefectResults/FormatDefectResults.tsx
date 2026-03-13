@@ -1,4 +1,4 @@
-import type { DefectType } from "../enums";
+import type { DefectType } from "../../enums";
 import styles from "./FormatDefectResults.module.scss";
 
 export interface Defect {
@@ -14,17 +14,19 @@ const FormatDefectResults = ({ results }: { results: Defect[] | null }) => {
     return <h3>No defects detected.</h3>;
   } else {
     return (
-      <div className={styles.defect_results_container}>
+      <div className={styles.defectResultsContainer}>
         <h3>{results.length} Defects Detected:</h3>
         <ol>
           {results.map((defect, index) => (
             <li key={index}>
-              Type: <span className={styles.defect_info}>{defect.type}</span>,
-              Location: (<span className={styles.defect_info}>{defect.x}</span>,{" "}
-              <span className={styles.defect_info}>{defect.y}</span>), Size:
-              <span className={styles.defect_info}>
-                {defect.width}x{defect.height}
-              </span>
+              Type: <span className={styles.defectInfo}>{defect.type}</span>
+              <br />
+              Location: (<span className={styles.defectInfo}>{defect.x}</span>,
+              <span className={styles.defectInfo}>{defect.y}</span>)<br />
+              Width:
+              <span className={styles.defectInfo}>{defect.width}</span>
+              <br /> Height:{" "}
+              <span className={styles.defectInfo}>{defect.height}</span>
             </li>
           ))}
         </ol>
