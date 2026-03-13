@@ -8,9 +8,9 @@ import FormatDefectResults, {
 import { randomDefects } from "@constants/ApiResponse";
 
 const ImageUploader = () => {
-  const [filename, setFilename] = useState("");
+  const [filename, setFilename] = useState<string>("");
   const [filePreview, setFilePreview] = useState<string | null>(null);
-  const [seeDefectResults, setSeeDefectResults] = useState(false);
+  const [seeDefectResults, setSeeDefectResults] = useState<boolean>(false);
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
 
   function handleGenerateResults() {
