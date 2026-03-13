@@ -1,11 +1,11 @@
-.run_defect_detection_button_container {
+.resultsButtonContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
-.run_defect_detection_button {
+.resultsButton {
   background-color: var(--edf-light-grey);
   color: black;
   font-size: 20px;
@@ -15,6 +15,6 @@
   cursor: pointer;
 }
 
-.run_defect_detection_button:hover {
+.resultsButton:hover {
   background-color: var(--edf-light-blue);
 }
