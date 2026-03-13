@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UploadButton from "../Buttons/UploadButton";
 import ImageDisplay from "../ImageDisplay/ImageDisplay";
+import DefectDetectionButton from "../Buttons/DefectDetectionButton";
 
 const ImageUploader = () => {
   const [fileName, setFileName] = useState("");
@@ -14,13 +15,12 @@ const ImageUploader = () => {
         setFilePreview={setFilePreview}
         setSeeDefectResults={setSeeDefectResults}
       />
-      <ImageDisplay
+      <ImageDisplay filePreview={filePreview} fileName={fileName} />
+      <DefectDetectionButton
         filePreview={filePreview}
-        fileName={fileName}
         setSeeDefectResults={setSeeDefectResults}
         seeDefectResults={seeDefectResults}
       />
-      {/*<DefectDetectionButton /> --- IGNORE ---*/}
     </div>
   );
 };

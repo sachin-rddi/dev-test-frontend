@@ -8,7 +8,7 @@ const defectTypes = [DefectType.EROSION, DefectType.CRACK, DefectType.UNKNOWN];
 const randomDefects = (): Defect[] => {
   const defectArray: Defect[] = [];
 
-  const randomDefectCount = Math.floor(Math.random() * 3);
+  const randomDefectCount = Math.floor(Math.random() * 4);
   for (let i = 0; i < randomDefectCount; i++) {
     defectArray.push({
       x: randomInteger(),

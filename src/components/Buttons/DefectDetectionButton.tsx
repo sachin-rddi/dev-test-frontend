@@ -2,14 +2,16 @@ import { useState } from "react";
 import styles from "./DefectDetectionButton.module.scss";
 import FormatDefectResults from "../DefectResults/FormatDefectResults";
 import type { Defect } from "../DefectResults/FormatDefectResults";
-import { randomDefects } from "../../constants/apiResponse";
+import { randomDefects } from "../../constants/ApiResponse";
 
 const DefectDetectionButton = ({
   setSeeDefectResults,
   seeDefectResults,
+  filePreview,
 }: {
   setSeeDefectResults: (results: boolean) => void;
   seeDefectResults: boolean;
+  filePreview: string | null;
 }) => {
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
 
@@ -19,15 +21,19 @@ const DefectDetectionButton = ({
   }
 
   return (
-    <div className={styles.run_defect_detection_button_container}>
-      <button
-        className={styles.run_defect_detection_button}
-        onClick={handleClick}
-      >
-        Run Defect Detection
-      </button>
-      {seeDefectResults && <FormatDefectResults results={defectResults} />}
-    </div>
+    <>
+      {filePreview && (
+        <div className={styles.run_defect_detection_button_container}>
+          <button
+            className={styles.run_defect_detection_button}
+            onClick={handleClick}
+          >
+            Run Defect Detection
+          </button>
+          {seeDefectResults && <FormatDefectResults results={defectResults} />}
+        </div>
+      )}
+    </>
   );
 };
 
