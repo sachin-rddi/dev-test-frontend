@@ -3,24 +3,13 @@ import type { ChangeEvent } from "react";
 import styles from "./UploadButton.module.scss";
 
 const UploadButton = ({
-  setFileName,
-  setFilePreview,
-  setSeeDefectResults,
+  label,
+  onClick,
 }: {
-  setFileName: (name: string) => void;
-  setFilePreview: (preview: string | null) => void;
-  setSeeDefectResults: (results: boolean) => void;
+  label: string;
+  onClick: (event: ChangeEvent<HTMLInputElement>) => void;
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files?.[0];
-    if (selectedFile) {
-      setFileName(selectedFile.name);
-      setFilePreview(URL.createObjectURL(selectedFile));
-      setSeeDefectResults(false);
-    }
-  };
 
   const openFilePicker = () => {
     fileInputRef.current?.click();
@@ -32,14 +21,14 @@ const UploadButton = ({
         ref={fileInputRef}
         type="file"
         style={{ display: "none" }}
-        onChange={handleFileChange}
+        onChange={onClick}
       />
       <button
         type="button"
         onClick={openFilePicker}
         className={styles.uploadButton}
       >
-        {"Choose Image"}
+        {label}
       </button>
     </div>
   );
