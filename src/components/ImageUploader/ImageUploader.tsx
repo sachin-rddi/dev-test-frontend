@@ -39,10 +39,8 @@ const ImageUploader = () => {
         label="Detect Defects"
         onClick={handleGenerateResults}
         visibilityCondition={Boolean(filePreview)}
-        children={
-          seeDefectResults && <FormatDefectResults results={defectResults} />
-        }
       />
+      {seeDefectResults && <FormatDefectResults results={defectResults} />}
     </div>
   );
 };

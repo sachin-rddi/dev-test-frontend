@@ -4,14 +4,12 @@ interface ResultsButtonProps {
   label: string;
   onClick: () => void;
   visibilityCondition?: boolean;
-  children?: React.ReactNode;
 }
 
 const ResultsButton = ({
   label,
   onClick,
   visibilityCondition = true,
-  children,
 }: ResultsButtonProps) => {
   return (
     <>
@@ -20,7 +18,6 @@ const ResultsButton = ({
           <button className={styles.resultsButton} onClick={onClick}>
             {label}
           </button>
-          {children}
         </div>
       )}
     </>
