@@ -2,13 +2,12 @@ import { useRef } from "react";
 import type { ChangeEvent } from "react";
 import styles from "./UploadButton.module.scss";
 
-const UploadButton = ({
-  label,
-  onClick,
-}: {
+interface UploadButtonProps {
   label: string;
   onClick: (event: ChangeEvent<HTMLInputElement>) => void;
-}) => {
+}
+
+const UploadButton = ({ label, onClick }: UploadButtonProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const openFilePicker = () => {

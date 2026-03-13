@@ -9,7 +9,11 @@ export interface Defect {
   type: DefectType;
 }
 
-const FormatDefectResults = ({ results }: { results: Defect[] | null }) => {
+interface FormatDefectResultsProps {
+  results: Defect[] | null;
+}
+
+const FormatDefectResults = ({ results }: FormatDefectResultsProps) => {
   if (!results || results.length === 0) return <h3>No defects detected.</h3>;
 
   return (
