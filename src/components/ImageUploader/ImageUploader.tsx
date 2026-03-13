@@ -30,7 +30,11 @@ const ImageUploader = () => {
   return (
     <div>
       <UploadButton label="Choose Image" onClick={handleFileChange} />
-      <ImageDisplay image={filePreview} filename={filename} />
+      <ImageDisplay
+        image={filePreview}
+        filename={filename}
+        label="Selected Image:"
+      />
       <ResultsButton
         label="Detect Defects"
         onClick={handleGenerateResults}
