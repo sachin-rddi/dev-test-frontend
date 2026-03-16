@@ -5,23 +5,26 @@ import ResultsButton from "@components/Buttons/ResultsButton";
 import FormatDefectResults, {
   type Defect,
 } from "@components/DefectResults/FormatDefectResults";
-import { randomDefects } from "@constants/ApiResponse";
+import { getDefects } from "@constants/ApiResponse";
 
 const ImageUploader = () => {
-  const [filename, setFilename] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
   const [seeDefectResults, setSeeDefectResults] = useState<boolean>(false);
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
 
-  function handleGenerateResults() {
-    setDefectResults(randomDefects());
-    setSeeDefectResults(true);
+  async function handleGenerateResults() {
+    if (file) {
+      const results = await getDefects(file);
+      setDefectResults(results as Defect[]);
+      setSeeDefectResults(true);
+    }
   }
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
-      setFilename(selectedFile.name);
+      setFile(selectedFile);
       setFilePreview(URL.createObjectURL(selectedFile));
       setSeeDefectResults(false);
     }
@@ -32,7 +35,7 @@ const ImageUploader = () => {
       <UploadButton label="Choose Image" onClick={handleFileChange} />
       <ImageDisplay
         image={filePreview}
-        filename={filename}
+        filename={file?.name ?? "NO FILE SELECTED"}
         label="Selected Image:"
       />
       <ResultsButton

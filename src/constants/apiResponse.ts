@@ -1,24 +1,29 @@
+import axios from "axios";
+import FormData from "form-data";
 import type { Defect } from "@components/DefectResults/FormatDefectResults";
-import { DefectType } from "@enums";
 
-const randomInteger = () => Math.floor(Math.random() * 500);
+/**
+ * Retrieves defect detection results from the defect detection API.
+ * @param file - The image file to post to the defect detection API.
+ * @returns The defect detection results.
+ */
+export const getDefects = async (file: File): Promise<Defect[]> => {
+  const defectDetectionUrl = `https://<api-id>.execute-api.eu-west-2.amazonaws.com/dev/dev-test-defect-detection`;
 
-const defectTypes = [DefectType.EROSION, DefectType.CRACK, DefectType.UNKNOWN];
-
-const randomDefects = (): Defect[] => {
-  const defectArray: Defect[] = [];
-
-  const randomDefectCount = Math.floor(Math.random() * 3);
-  for (let i = 0; i <= randomDefectCount; i++) {
-    defectArray.push({
-      x: randomInteger(),
-      y: randomInteger(),
-      width: randomInteger(),
-      height: randomInteger(),
-      type: defectTypes[Math.floor(Math.random() * defectTypes.length)],
-    });
-  }
-  return defectArray;
+  const response = await axios.post(
+    defectDetectionUrl,
+    buildRequestBody(file),
+  );
+  return response.data;
 };
 
-export { randomDefects };
+/**
+ * Builds the request body for the defect detection API.
+ * @param file - The image file to include in the request body.
+ * @returns The request body as a FormData object.
+ */
+const buildRequestBody = (file: File) => {
+  const bodyFormData = new FormData();
+  bodyFormData.append("image", file);
+  return bodyFormData;
+};
