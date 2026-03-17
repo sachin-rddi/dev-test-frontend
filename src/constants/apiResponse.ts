@@ -8,13 +8,10 @@ import type { Defect } from "@components/DefectResults/FormatDefectResults";
  * @returns The defect detection results.
  */
 export const getDefects = async (file: File): Promise<Defect[]> => {
-  const defectDetectionUrl = `https://<api-id>.execute-api.eu-west-2.amazonaws.com/dev/dev-test-defect-detection`;
+  const defectDetectionUrl = `/api/dev/dev-test-defect-detection`;
 
-  const response = await axios.post(
-    defectDetectionUrl,
-    buildRequestBody(file),
-  );
-  return response.data;
+  const response = await axios.post(defectDetectionUrl, buildRequestBody(file));
+  return response.data.defects;
 };
 
 /**
