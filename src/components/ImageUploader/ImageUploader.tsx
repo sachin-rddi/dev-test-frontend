@@ -17,9 +17,11 @@ const ImageUploader = () => {
     useState<boolean>(false);
 
   async function handleGenerateResults() {
+    setSeeDefectResults(false);
     if (file) {
       setDefectResultsLoading(true);
       const results = await getDefects(file);
+      await new Promise((resolve) => setTimeout(resolve, 300)); // slight delay to show loading text
       setDefectResults(results as Defect[]);
       setSeeDefectResults(true);
       setDefectResultsLoading(false);

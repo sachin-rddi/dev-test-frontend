@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import styles from "./LoadingDefectResults.module.scss";
 
-const messages = ["Loading.", "Loading..", "Loading..."];
-
 const LoadingText = () => {
-  const [index, setIndex] = useState(0);
+  const [noDots, setNoDots] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % messages.length);
-    }, 1000);
+      setNoDots((prev) => prev + 1);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className={styles.LoadingTextContainer}>
-      <h3>{messages[index]}</h3>
+      <h4>Loading{".".repeat(noDots)}</h4>
     </div>
   );
 };
+
 export default LoadingText;
