@@ -8,6 +8,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [react()],
 
+  server: {
+    proxy: {
+      "/api": {
+        target: //API ROOT WILL GO HERE,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
+
   resolve: {
     alias: {
       "@views": path.resolve(__dirname, "src/views"),
