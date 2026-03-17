@@ -6,18 +6,23 @@ import FormatDefectResults, {
   type Defect,
 } from "@components/DefectResults/FormatDefectResults";
 import { getDefects } from "@constants/ApiResponse";
+import LoadingText from "@components/DefectResults/LoadingDefectResults";
 
 const ImageUploader = () => {
   const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
   const [seeDefectResults, setSeeDefectResults] = useState<boolean>(false);
   const [defectResults, setDefectResults] = useState<Defect[] | null>(null);
+  const [defectResultsLoading, setDefectResultsLoading] =
+    useState<boolean>(false);
 
   async function handleGenerateResults() {
     if (file) {
+      setDefectResultsLoading(true);
       const results = await getDefects(file);
       setDefectResults(results as Defect[]);
       setSeeDefectResults(true);
+      setDefectResultsLoading(false);
     }
   }
 
@@ -43,6 +48,7 @@ const ImageUploader = () => {
         onClick={handleGenerateResults}
         visibilityCondition={Boolean(filePreview)}
       />
+      {!seeDefectResults && defectResultsLoading && <LoadingText />}
       {seeDefectResults && <FormatDefectResults results={defectResults} />}
     </div>
   );
