@@ -14,7 +14,12 @@ interface FormatDefectResultsProps {
 }
 
 const FormatDefectResults = ({ results }: FormatDefectResultsProps) => {
-  if (!results || results.length === 0) return <h3>No defects detected.</h3>;
+  if (!results || results.length === 0)
+    return (
+      <div className={styles.defectResultsContainer}>
+        <h3>No defects detected.</h3>
+      </div>
+    );
 
   return (
     <div className={styles.defectResultsContainer}>
