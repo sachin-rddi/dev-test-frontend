@@ -34,6 +34,7 @@ const ImageUploader = () => {
       setFile(selectedFile);
       setFilePreview(URL.createObjectURL(selectedFile));
       setSeeDefectResults(false);
+      setDefectResultsLoading(false);
     }
   };
 
