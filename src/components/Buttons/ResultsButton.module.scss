@@ -1,0 +1,20 @@
+.resultsButtonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.resultsButton {
+  background-color: var(--edf-light-grey);
+  color: black;
+  font-size: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.resultsButton:hover {
+  background-color: var(--edf-light-blue);
+}

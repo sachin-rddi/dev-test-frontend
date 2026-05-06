@@ -1,0 +1,20 @@
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.previewTitle {
+  margin-top: 20px;
+  margin-bottom: 3px;
+  font-size: 18px;
+}
+
+.previewImage { 
+  width: 300px; 
+  height: 300px; 
+  object-fit: contain; 
+  display: block;
+  border: 5px solid var(--edf-light-grey);
+}
